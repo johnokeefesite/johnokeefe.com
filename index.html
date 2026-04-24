@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Artist</title>
+  <title>John O'Keeffe</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.0.3/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -12,18 +12,22 @@
     body { font-family: Arial, sans-serif; color: #fff; background: #000; }
     /* NAV */
     .site-header { background: #000; padding: 0.5rem 1rem; position: sticky; top: 0; z-index: 100; }
-    .site-header .logo { height: 40px; }
     .site-header a { color: #fff; text-decoration: none; }
+    .navbar-brand-text { font-size: 1.2rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; }
     .navbar-nav .nav-link { color: #fff !important; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
     .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
+    /* LETTERBOX BANNER */
+    .banner-letterbox { width: 100%; aspect-ratio: 21/9; overflow: hidden; position: relative; background: #111; }
+    .banner-letterbox img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
     /* HERO */
     .hero-slide { position: relative; width: 100%; padding-top: 56.25%; overflow: hidden; }
     .hero-slide img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
     .hero-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 2rem; background: linear-gradient(transparent, rgba(0,0,0,0.8)); }
     .hero-overlay h2 { font-size: 2.5rem; font-weight: bold; }
     .hero-overlay p { font-size: 1.1rem; margin: 0.5rem 0 1rem; }
-    .btn-cta { background: #fff; color: #000; padding: 0.6rem 1.5rem; text-transform: uppercase; font-weight: bold; border: none; font-size: 0.85rem; }
+    .btn-cta { background: #fff; color: #000; padding: 0.6rem 1.5rem; text-transform: uppercase; font-weight: bold; border: none; font-size: 0.85rem; display: inline-block; }
     .btn-cta:hover { background: #ddd; color: #000; text-decoration: none; }
+    .btn-cta.no-link { pointer-events: none; cursor: default; }
     /* TOUR */
     #tour { padding: 3rem 1rem; }
     #tour h2 { text-align: center; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2rem; }
@@ -35,22 +39,22 @@
     /* INFO */
     #info { padding: 3rem 1rem; text-align: center; border-top: 1px solid #222; }
     #info h3 { text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
-    #info p { color: #ccc; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+    #info p { color: #ccc; max-width: 600px; margin: 0 auto; line-height: 1.6; font-size: 1rem; }
+    #info a { color: #fff; }
     /* FOOTER */
-    footer { padding: 2rem 1rem; text-align: center; border-top: 1px solid #222; }
-    .social-links a { color: #fff; font-size: 1.3rem; margin: 0 0.5rem; }
+    footer { padding: 2.5rem 1rem; text-align: center; border-top: 1px solid #222; }
+    .social-links { display: flex; justify-content: center; align-items: center; gap: 2rem; }
+    .social-links a { color: #fff; font-size: 1.8rem; line-height: 1; transition: color 0.2s; }
     .social-links a:hover { color: #ccc; }
-    footer p { color: #777; font-size: 0.8rem; margin-top: 1rem; }
-    footer .legal a { color: #777; font-size: 0.75rem; margin: 0 0.5rem; }
+    .tiktok-icon { width: 1.6rem; height: 1.6rem; fill: #fff; display: block; transition: fill 0.2s; }
+    .social-links a:hover .tiktok-icon { fill: #ccc; }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
 <header class="site-header navbar navbar-expand-md">
-  <a class="navbar-brand" href="#home">
-    <img src="images/logo.png" alt="Artist Name" class="logo">
-  </a>
+  <a class="navbar-brand navbar-brand-text" href="#home">John O'Keeffe</a>
   <button class="navbar-toggler" data-toggle="collapse" data-target="#navMenu" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -63,23 +67,31 @@
   </div>
 </header>
 
+<!-- LETTERBOX BANNER -->
+<!-- This uses your uploaded photo. In your repo, save it as images/banner.jpg -->
+<div class="banner-letterbox">
+  <img src="images/banner.jpg" alt="John O'Keeffe">
+</div>
+
 <!-- HERO CAROUSEL -->
 <section id="home">
   <div class="swiper heroSwiper">
     <div class="swiper-wrapper">
+
       <div class="swiper-slide">
         <div class="hero-slide">
-          <img src="images/hero-1.jpg" alt="Hero 1">
+          <img src="images/hero-1.jpg" alt="Bio">
           <div class="hero-overlay">
-            <h2>New Album Out Now</h2>
-            <p>Stream everywhere</p>
-            <a href="#" class="btn-cta">Listen Now</a>
+            <h2>Bio</h2>
+            <p>Find out more</p>
+            <a href="#info" class="btn-cta">Read More</a>
           </div>
         </div>
       </div>
+
       <div class="swiper-slide">
         <div class="hero-slide">
-          <img src="images/hero-2.jpg" alt="Hero 2">
+          <img src="images/hero-2.jpg" alt="On Tour">
           <div class="hero-overlay">
             <h2>On Tour 2026</h2>
             <p>Dates announced</p>
@@ -87,16 +99,18 @@
           </div>
         </div>
       </div>
+
       <div class="swiper-slide">
         <div class="hero-slide">
-          <img src="images/hero-3.jpg" alt="Hero 3">
+          <img src="images/hero-3.jpg" alt="Merch">
           <div class="hero-overlay">
             <h2>Merch Available</h2>
             <p>Limited edition drop</p>
-            <a href="#" class="btn-cta">Shop Now</a>
+            <a href="#" class="btn-cta no-link">Shop Now</a>
           </div>
         </div>
       </div>
+
     </div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
@@ -107,57 +121,36 @@
 <section id="tour">
   <div class="container">
     <h2>Tour Dates</h2>
+
     <div class="tour-item">
-      <span class="tour-date">May 10, 2026</span>
-      <span class="tour-venue">The Wiltern — Los Angeles, CA</span>
-      <a href="#" class="btn-cta">Tickets</a>
+      <span class="tour-date">April 24, 2026</span>
+      <span class="tour-venue">Metro Comedy Club — Prague</span>
+      <a href="https://foxticket.cz/akce/1016-irish-comedy-show-with-john-o-keeffe-24th-april?fbclid=PAb21jcARVhFtleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAadi4YD6p1vp1mUn3kG4S1l4G__amhlsx9hrR13735nAj9-dgKjJBUUs11wJYg_aem_61mYay9QCtX5-8mM6iINxA" target="_blank" class="btn-cta">Tickets</a>
     </div>
-    <div class="tour-item">
-      <span class="tour-date">May 15, 2026</span>
-      <span class="tour-venue">Brooklyn Steel — New York, NY</span>
-      <a href="#" class="btn-cta">Tickets</a>
-    </div>
-    <div class="tour-item">
-      <span class="tour-date">May 22, 2026</span>
-      <span class="tour-venue">Metro — Chicago, IL</span>
-      <a href="#" class="btn-cta">Tickets</a>
-    </div>
-    <div class="tour-item">
-      <span class="tour-date">Jun 5, 2026</span>
-      <span class="tour-venue">O2 Academy Brixton — London, UK</span>
-      <a href="#" class="btn-cta">Tickets</a>
-    </div>
-    <div class="tour-item">
-      <span class="tour-date">Jun 12, 2026</span>
-      <span class="tour-venue">Zenith — Paris, France</span>
-      <a href="#" class="btn-cta">Sold Out</a>
-    </div>
+
+    <!-- ADD MORE DATES HERE — copy the block above for each new show -->
+
   </div>
 </section>
 
-<!-- INFO / VIP -->
+<!-- INFO / CONTACT -->
 <section id="info">
   <div class="container">
-    <h3>VIP Experience</h3>
-    <p>
-      One premium reserved ticket · Exclusive tour poster · Limited edition merch bundle
-      · Commemorative laminate and lanyard · Early venue entry
-    </p>
+    <h3>Contact</h3>
+    <p>Email: <a href="mailto:johnokeeffecomedy@gmail.com">johnokeeffecomedy</a></p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="social-links">
-    <a href="#" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-    <a href="#" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
     <a href="#" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
     <a href="#" aria-label="YouTube"><i class="fa fa-youtube"></i></a>
-  </div>
-  <p>&copy; 2026 Artist Name. All rights reserved.</p>
-  <div class="legal">
-    <a href="#">Terms</a>
-    <a href="#">Privacy</a>
+    <a href="#" aria-label="TikTok">
+      <svg class="tiktok-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
+      </svg>
+    </a>
   </div>
 </footer>
 
