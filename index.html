@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+Here's the complete updated index.html with the fixes applied:
+
+Added ./ to all image paths (banner.jpg and the three hero images)
+Added a solid fallback background color + background-image to the banner (so even if the image has a temporary loading issue, it won't stay completely black)
+Minor cleanups for better reliability on GitHub Pages
+
+Just copy and paste the entire code below into your index.html file, then commit and push it.
+HTML<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,15 +17,30 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; color: #fff; background: #000; }
+    
     /* NAV */
     .site-header { background: #000; padding: 0.5rem 1rem; position: sticky; top: 0; z-index: 100; }
     .site-header a { color: #fff; text-decoration: none; }
     .navbar-brand-text { font-size: 1.2rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; }
     .navbar-nav .nav-link { color: #fff !important; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
     .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
-    /* LETTERBOX BANNER */
-    .banner-letterbox { width: 100%; aspect-ratio: 21/9; overflow: hidden; position: relative; background: #111; }
-    .banner-letterbox img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+
+    /* LETTERBOX BANNER - Improved with fallback */
+    .banner-letterbox { 
+      width: 100%; 
+      aspect-ratio: 21/9; 
+      overflow: hidden; 
+      position: relative; 
+      background: #111 url('./images/banner.jpg') center top / cover no-repeat;
+    }
+    .banner-letterbox img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      object-position: center top; 
+      display: block; 
+    }
+
     /* HERO */
     .hero-slide { position: relative; width: 100%; padding-top: 56.25%; overflow: hidden; }
     .hero-slide img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -28,6 +50,7 @@
     .btn-cta { background: #fff; color: #000; padding: 0.6rem 1.5rem; text-transform: uppercase; font-weight: bold; border: none; font-size: 0.85rem; display: inline-block; }
     .btn-cta:hover { background: #ddd; color: #000; text-decoration: none; }
     .btn-cta.no-link { pointer-events: none; cursor: default; }
+
     /* TOUR */
     #tour { padding: 3rem 1rem; }
     #tour h2 { text-align: center; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2rem; }
@@ -36,11 +59,13 @@
     .tour-date { font-weight: bold; min-width: 120px; }
     .tour-venue { flex: 1; color: #ccc; }
     .tour-item .btn-cta { padding: 0.4rem 1rem; font-size: 0.8rem; }
+
     /* INFO */
     #info { padding: 3rem 1rem; text-align: center; border-top: 1px solid #222; }
     #info h3 { text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
     #info p { color: #ccc; max-width: 600px; margin: 0 auto; line-height: 1.6; font-size: 1rem; }
     #info a { color: #fff; }
+
     /* FOOTER */
     footer { padding: 2.5rem 1rem; text-align: center; border-top: 1px solid #222; }
     .social-links { display: flex; justify-content: center; align-items: center; gap: 2rem; }
@@ -68,7 +93,6 @@
 </header>
 
 <!-- LETTERBOX BANNER -->
-<!-- This uses your uploaded photo. In your repo, save it as images/banner.jpg -->
 <div class="banner-letterbox">
   <img src="./images/banner.jpg" alt="John O'Keeffe">
 </div>
@@ -80,7 +104,7 @@
 
       <div class="swiper-slide">
         <div class="hero-slide">
-          <img src="images/hero-1.jpg" alt="Bio">
+          <img src="./images/hero-1.jpg" alt="Bio">
           <div class="hero-overlay">
             <h2>Bio</h2>
             <p>Find out more</p>
@@ -91,7 +115,7 @@
 
       <div class="swiper-slide">
         <div class="hero-slide">
-          <img src="images/hero-2.jpg" alt="On Tour">
+          <img src="./images/hero-2.jpg" alt="On Tour">
           <div class="hero-overlay">
             <h2>On Tour 2026</h2>
             <p>Dates announced</p>
@@ -102,7 +126,7 @@
 
       <div class="swiper-slide">
         <div class="hero-slide">
-          <img src="images/hero-3.jpg" alt="Merch">
+          <img src="./images/hero-3.jpg" alt="Merch">
           <div class="hero-overlay">
             <h2>Merch Available</h2>
             <p>Limited edition drop</p>
@@ -137,7 +161,7 @@
 <section id="info">
   <div class="container">
     <h3>Contact</h3>
-    <p>Email: <a href="mailto:johnokeeffecomedy@gmail.com">johnokeeffecomedy</a></p>
+    <p>Email: <a href="mailto:johnokeeffecomedy@gmail.com">johnokeeffecomedy@gmail.com</a></p>
   </div>
 </section>
 
